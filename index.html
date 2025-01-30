@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Facts</title>
+    <style>
+        #factsContainer {
+            margin-top: 20px;
+            font-family: sans-serif;
+        }
+
+        #factsContainer p {
+            margin-bottom: 10px;
+        }
+
+        #showFactsBtn {
+          padding: 10px 20px;
+          font-size: 16px;
+          cursor: pointer;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <button id="showFactsBtn">Show Space Facts</button>
+    <div id="factsContainer"></div>
+    <script>
+        const spaceFacts = {
+          "space_facts": [
+            {
+              "fact_number": 1,
+              "fact": "Space is a near-perfect vacuum, meaning it contains very little matter."
+            },
+            {
+              "fact_number": 2,
+              "fact": "The universe is constantly expanding."
+            },
+            {
+              "fact_number": 3,
+               "fact": "The speed of light in a vacuum is approximately 299,792,458 meters per second."
+            },
+            {
+              "fact_number": 4,
+              "fact": "A light-year is the distance light travels in one year, approximately 9.46 trillion kilometers."
+            },
+            {
+              "fact_number": 5,
+              "fact": "Black holes are regions of spacetime with such strong gravity that nothing, not even light, can escape."
+            },
+            {
+              "fact_number": 6,
+              "fact": "The Earth's atmosphere protects us from most harmful solar radiation."
+            },
+            {
+               "fact_number": 7,
+              "fact": "There are billions of galaxies, each containing billions of stars."
+            },
+            {
+              "fact_number": 8,
+              "fact":"The International Space Station (ISS) orbits the Earth at an altitude of about 400 kilometers."
+            },
+            {
+              "fact_number": 9,
+              "fact": "The surface temperature of the Sun is about 5,500 degrees Celsius."
+            },
+            {
+              "fact_number": 10,
+              "fact": "The observable universe is estimated to be about 93 billion light-years in diameter."
+            }
+          ]
+        };
+
+        document.getElementById('showFactsBtn').addEventListener('click', function() {
+            const factsContainer = document.getElementById('factsContainer');
+            factsContainer.innerHTML = ''; // Clear previous facts
+
+            spaceFacts.space_facts.forEach(factObj => {
+                const factElement = document.createElement('p');
+                factElement.textContent = `${factObj.fact_number}. ${factObj.fact}`;
+                factsContainer.appendChild(factElement);
+            });
+        });
+    </script>
+</body>
+</html>
